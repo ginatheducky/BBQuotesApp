@@ -25,8 +25,17 @@ class ViewModel {
     }
     
     // property to track our fetch status
+    // we want the view to be able to see the property but not change it
+    private(set) var status: FetchStatus = .notStarted // this property is partially private, so only the setting capability is private
     
     // we need to initialize a fetch service
+    private let fetcher = FetchService()
     
     // we need some properties to store the data that we fetch
+    var quote: Quote
+    var character: Char
+    
+    init() {
+        // this runs automatically as soon as the class gets initialized
+    }
 }
